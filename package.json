@@ -1,0 +1,22 @@
+{
+	"name": "servidor",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon .",
+		"start": "node ."
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"aws-sdk": "^2.1162.0",
+		"cors": "^2.8.5",
+		"crypto": "^1.0.1",
+		"dotenv": "^16.0.1",
+		"express": "^4.18.1",
+		"mysql": "^2.18.1",
+		"nodemon": "^2.0.18",
+		"util": "^0.12.4"
+	}
+}
