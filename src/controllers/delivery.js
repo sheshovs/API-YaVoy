@@ -131,7 +131,7 @@ const controller = {
 	},
 
 	GetDelivery: async (req, res) => {
-		const { rut } = req.body;
+		const { rut } = req.query;
 
 		if (!rut) {
 			return res.status(400).send({ error: "Falta ingresar el rut" });
