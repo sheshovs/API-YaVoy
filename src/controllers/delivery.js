@@ -1,6 +1,35 @@
 const Delivery = require("../repository/delivery");
 
 const controller = {
+	Login: async (req, res) => {
+		const { correo, password } = req.body;
+
+		if (!correo) {
+			return res.status(400).send({ error: "Falta ingresar el correo" });
+		}
+		if (!password) {
+			return res.status(400).send({ error: "Falta ingresar la contraseña" });
+		}
+
+		const infoDelivery = await Delivery.login(correo);
+
+		if (infoDelivery.length === 0)
+			return res.status(404).send({ error: "No existe el correo" });
+
+		if (correo !== infoDelivery[0].Correo) {
+			return res.status(400).send({ error: "Correo incorrecto" });
+		}
+
+		if (password !== infoDelivery[0].Contraseña) {
+			return res.status(400).send({ error: "Contraseña incorrecta" });
+		}
+
+		return res.status(200).send({
+			message: "Inicio de sesión exitoso",
+			data: { Rut_Rep: infoDelivery[0].Rut_Rep },
+		});
+	},
+
 	GetDeliveries: async (req, res) => {
 		const deliveries = await Delivery.getAllDeliveries();
 		if (deliveries.length === 0)

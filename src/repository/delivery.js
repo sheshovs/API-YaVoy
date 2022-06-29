@@ -3,6 +3,22 @@ const { connection } = require("../config/db");
 const tableName = "REPARTIDOR";
 
 const requests = {
+	login: async (correo) => {
+		try {
+			let sql = `SELECT Rut_Rep, Correo, Contraseña FROM ${tableName} WHERE Correo = "${correo}";`;
+			return new Promise((resolve, reject) => {
+				connection.query(sql, (err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(JSON.stringify(result)));
+					}
+				});
+			});
+		} catch (error) {
+			return error.response;
+		}
+	},
 	getAllDeliveries: async () => {
 		try {
 			let sql = `SELECT * FROM ${tableName};`;

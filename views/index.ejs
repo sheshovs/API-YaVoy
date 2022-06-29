@@ -44,7 +44,7 @@
 					<h2>URL: /delivery</h2>
 					<p>POST: Creación de repartidor</p>
 					<p>
-						Recibe como datos: <br />
+						Recibe por body los siguientes datos: <br />
 						rut (obligatorio), <br />
 						p_nombre (obligatorio),<br />
 						s_nombre,<br />
@@ -62,7 +62,7 @@
 					<h2>URL: /delivery</h2>
 					<p>PATCH: Modificar datos de repartidor</p>
 					<p>
-						Recibe como datos: <br />
+						Recibe por body los siguientes datos: <br />
 						rut (obligatorio), <br />
 						p_nombre (obligatorio),<br />
 						s_nombre,<br />
@@ -99,6 +99,18 @@
 					<h2>URL: /file/images</h2>
 					<p>POST: Crea un registro con el nombre y url del archivo</p>
 					<p>Recibe un name (obligatorio) y url (obligatorio) por parámetros</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item">
+					<h2>URL: /login</h2>
+					<p>
+						POST: Envia datos de inicio de sesión y devuelve el rut en caso de
+						ser correcto
+					</p>
+					<p>
+						Recibe un correo (obligatorio) y password (obligatorio) por body
+					</p>
 				</div>
 			</div>
 		</div>
