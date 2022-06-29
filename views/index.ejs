@@ -1,12 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Hello</h1>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.container-item {
+				width: 100%;
+				display: flex;
+			}
+			.item {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				border: 1px solid black;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="container-item">
+				<div class="item">
+					<h2>URL: /delivery?rut=202046782</h2>
+					<p>GET: Obtiene un repartidor</p>
+					<p>Recibe un rut (obligatorio) por parámetros</p>
+				</div>
+				<div class="item">
+					<h2>URL: /delivery?rut=202046782</h2>
+					<p>DELETE: Elimina un repartidor</p>
+					<p>Recibe un rut (obligatorio) por parámetros</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item">
+					<h2>URL: /delivery</h2>
+					<p>POST: Creación de repartidor</p>
+					<p>
+						Recibe como datos: <br />
+						rut (obligatorio), <br />
+						p_nombre (obligatorio),<br />
+						s_nombre,<br />
+						p_apellido (obligatorio),<br />
+						s_apellido,<br />
+						nro_documento,<br />
+						nacionalidad (obligatorio),<br />
+						calificacion,<br />
+						genero,<br />
+						password,<br />
+						correo.
+					</p>
+				</div>
+				<div class="item">
+					<h2>URL: /delivery</h2>
+					<p>PATCH: Modificar datos de repartidor</p>
+					<p>
+						Recibe como datos: <br />
+						rut (obligatorio), <br />
+						p_nombre (obligatorio),<br />
+						s_nombre,<br />
+						p_apellido (obligatorio),<br />
+						s_apellido,<br />
+						nro_documento,<br />
+						nacionalidad (obligatorio),<br />
+						calificacion,<br />
+						genero,<br />
+						correo.
+					</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item">
+					<h2>URL: /allDelivery</h2>
+					<p>GET: Obtiene todos los repartidores</p>
+				</div>
+				<div class="item">
+					<h2>URL: /allDelivery/rut</h2>
+					<p>GET: Obtiene todos los ruts de repartidores</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item">
+					<h2>URL: /s3url</h2>
+					<p>GET: Obtiene una URL para subir imagenes a un bucket de AWS</p>
+					<p>
+						Al obtener esta url se debe hacer un POST a ella con la imagen a
+						subir y retorna un url
+					</p>
+				</div>
+				<div class="item">
+					<h2>URL: /file/images</h2>
+					<p>POST: Crea un registro con el nombre y url del archivo</p>
+					<p>Recibe un name (obligatorio) y url (obligatorio) por parámetros</p>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
