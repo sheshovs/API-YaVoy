@@ -93,7 +93,7 @@ const requests = {
 
 	checkIfDeliveryExist: async (rut) => {
 		try {
-			let sql = `SELECT * FROM ${tableName} WHERE Rut_Rep = ${rut};`;
+			let sql = `SELECT * FROM ${tableName} WHERE Rut_Rep = "${rut}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
@@ -110,7 +110,7 @@ const requests = {
 
 	getDelivery: async (rut) => {
 		try {
-			let sql = `SELECT * FROM ${tableName} WHERE Rut_Rep = ${rut};`;
+			let sql = `SELECT * FROM ${tableName} WHERE Rut_Rep = "${rut}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
