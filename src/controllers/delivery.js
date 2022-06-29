@@ -44,7 +44,9 @@ const controller = {
 		const checkIfDeliveryExist = await Delivery.checkIfDeliveryExist(rut);
 
 		if (checkIfDeliveryExist.length > 0) {
-			return res.status(400).send({ error: "El rut se encuentra registrado" });
+			return res
+				.status(400)
+				.send({ error: "El repartidor se encuentra registrado" });
 		}
 
 		const newDelivery = {
@@ -103,7 +105,7 @@ const controller = {
 		if (checkIfDeliveryExist.length < 1) {
 			return res
 				.status(400)
-				.send({ error: "El rut no se encuentra registrado" });
+				.send({ error: "El repartidor no se encuentra registrado" });
 		}
 
 		const updateDelivery = {
@@ -139,14 +141,34 @@ const controller = {
 
 		const delivery = await Delivery.getDelivery(rut);
 		if (delivery.length === 0) {
-			return res.status(404).send({ error: "Usuario no encontrado" });
+			return res.status(404).send({ error: "Repartidor no encontrado" });
 		}
 
 		delete delivery[0].Contraseña;
 
 		return res
 			.status(200)
-			.send({ message: "Usuario encontrado", data: delivery });
+			.send({ message: "Repartidor encontrado", data: delivery });
+	},
+
+	DeleteDelivery: async (req, res) => {
+		const { rut } = req.query;
+
+		if (!rut) {
+			return res.status(400).send({ error: "Falta ingresar el rut" });
+		}
+
+		const checkIfDeliveryExist = await Delivery.getDelivery(rut);
+
+		if (checkIfDeliveryExist.length < 1) {
+			return res
+				.status(400)
+				.send({ error: "El repartidor no se encuentra registrado" });
+		}
+
+		await Delivery.deleteDelivery(rut);
+
+		return res.status(200).send({ message: "Repartidor eliminado" });
 	},
 };
 

@@ -124,6 +124,23 @@ const requests = {
 			return error.response;
 		}
 	},
+
+	deleteDelivery: async (rut) => {
+		try {
+			let sql = `DELETE FROM ${tableName} WHERE Rut_Rep = "${rut}";`;
+			return new Promise((resolve, reject) => {
+				connection.query(sql, (err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(JSON.stringify(result)));
+					}
+				});
+			});
+		} catch (error) {
+			return error.response;
+		}
+	},
 };
 
 module.exports = requests;
