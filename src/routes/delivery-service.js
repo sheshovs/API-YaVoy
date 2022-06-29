@@ -9,5 +9,6 @@ router.route("/delivery").get(Delivery.GetDelivery);
 router.route("/delivery").delete(Delivery.DeleteDelivery);
 
 router.route("/allDelivery").get(Delivery.GetDeliveries);
+router.route("/allDelivery/rut").get(Delivery.GetDeliveriesRut);
 
 module.exports = router;

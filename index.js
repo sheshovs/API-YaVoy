@@ -8,6 +8,9 @@ dotenv.config();
 const app = express();
 const router = express.Router();
 
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
+
 // habilitar cors
 app.use(cors());
 
@@ -19,6 +22,9 @@ const PORT = process.env.PORT || 4000;
 
 app.use(router);
 require("./src/routes")(app);
+app.get("/", function (req, res) {
+	res.render("index");
+});
 
 // arrancar la app
 app.listen(PORT, () => {

@@ -13,6 +13,14 @@ const controller = {
 			.send({ message: "Usuarios encontrados", deliveries });
 	},
 
+	GetDeliveriesRut: async (req, res) => {
+		const ruts = await Delivery.getAllDeliveriesRut();
+		if (ruts.length === 0)
+			return res.status(404).send({ error: "No existen usuarios" });
+
+		return res.status(200).send({ message: "Ruts encontrados", ruts });
+	},
+
 	CreateDelivery: async (req, res) => {
 		const {
 			rut,

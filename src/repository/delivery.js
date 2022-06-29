@@ -19,6 +19,22 @@ const requests = {
 			return error.response;
 		}
 	},
+	getAllDeliveriesRut: async () => {
+		try {
+			let sql = `SELECT Rut_Rep FROM ${tableName};`;
+			return new Promise((resolve, reject) => {
+				connection.query(sql, (err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(JSON.stringify(result)));
+					}
+				});
+			});
+		} catch (error) {
+			return error.response;
+		}
+	},
 	createDelivery: async (newDelivery) => {
 		try {
 			const {
