@@ -20,7 +20,7 @@ const controller = {
 			return res.status(400).send({ error: "Correo incorrecto" });
 		}
 
-		if (password !== infoDelivery[0].Contraseña) {
+		if (password !== infoDelivery[0].Contrasena) {
 			return res.status(400).send({ error: "Contraseña incorrecta" });
 		}
 
@@ -35,7 +35,7 @@ const controller = {
 		if (deliveries.length === 0)
 			return res.status(404).send({ error: "No existen usuarios" });
 
-		deliveries.map((delivery) => delete delivery.Contraseña);
+		deliveries.map((delivery) => delete delivery.Contrasena);
 
 		return res
 			.status(200)
@@ -103,6 +103,7 @@ const controller = {
 		const delivery = await Delivery.createDelivery(newDelivery);
 
 		if (delivery.affectedRows > 0) {
+			delete newDelivery.password;
 			return res.status(200).send({
 				message: "Repartidor creado correctamente",
 				data: newDelivery,
@@ -181,7 +182,7 @@ const controller = {
 			return res.status(404).send({ error: "Repartidor no encontrado" });
 		}
 
-		delete delivery[0].Contraseña;
+		delete delivery[0].Contrasena;
 
 		return res
 			.status(200)

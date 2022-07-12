@@ -5,7 +5,7 @@ const tableName = "REPARTIDOR";
 const requests = {
 	login: async (correo) => {
 		try {
-			let sql = `SELECT Rut_Rep, Correo, Contraseña FROM ${tableName} WHERE Correo = "${correo}";`;
+			let sql = `SELECT Rut_Rep, Correo, Contrasena FROM ${tableName} WHERE Correo = "${correo}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
@@ -66,7 +66,7 @@ const requests = {
 				password,
 				correo,
 			} = newDelivery;
-			let sql = `INSERT INTO ${tableName} (Rut_Rep, p_nombre, s_nombre, p_apellido, s_apellido, nro_documento,Nacionalidad, Calificacion, Genero, Contraseña, Correo) 
+			let sql = `INSERT INTO ${tableName} (Rut_Rep, p_nombre, s_nombre, p_apellido, s_apellido, nro_documento, Nacionalidad, Calificacion, Genero, Contrasena, Correo) 
 			VALUES ("${rut}","${p_nombre}","${s_nombre}","${p_apellido}","${s_apellido}","${nro_documento}","${nacionalidad}","${calificacion}","${genero}","${password}","${correo}");`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
