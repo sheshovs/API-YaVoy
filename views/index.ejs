@@ -23,25 +23,37 @@
 				border: 1px solid black;
 				margin: 5px;
 			}
+			.center-title {
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="container">
 			<div class="container-item">
 				<div class="item">
-					<h2>URL: /delivery?rut=202046782</h2>
+					<h2 class="center-title">
+						OBTENER REPARTIDOR <br />
+						URL: /delivery?rut=202046782
+					</h2>
 					<p>GET: Obtiene un repartidor</p>
 					<p>Recibe un rut (obligatorio) por parámetros</p>
 				</div>
 				<div class="item">
-					<h2>URL: /delivery?rut=202046782</h2>
+					<h2 class="center-title">
+						ELIMINAR REPARTIDOR <br />
+						URL: /delivery?rut=202046782
+					</h2>
 					<p>DELETE: Elimina un repartidor</p>
 					<p>Recibe un rut (obligatorio) por parámetros</p>
 				</div>
 			</div>
 			<div class="container-item">
 				<div class="item">
-					<h2>URL: /delivery</h2>
+					<h2 class="center-title">
+						CREAR REPARTIDOR <br />
+						URL: /delivery
+					</h2>
 					<p>POST: Creación de repartidor</p>
 					<p>
 						Recibe por body los siguientes datos: <br />
@@ -59,7 +71,10 @@
 					</p>
 				</div>
 				<div class="item">
-					<h2>URL: /delivery</h2>
+					<h2 class="center-title">
+						ACTUALIZAR REPARTIDOR <br />
+						URL: /delivery
+					</h2>
 					<p>PATCH: Modificar datos de repartidor</p>
 					<p>
 						Recibe por body los siguientes datos: <br />
@@ -78,17 +93,39 @@
 			</div>
 			<div class="container-item">
 				<div class="item">
-					<h2>URL: /allDelivery</h2>
+					<h2 class="center-title">
+						OBTENER TODOS LOS REPARTIDORES <br />
+						URL: /allDelivery
+					</h2>
 					<p>GET: Obtiene todos los repartidores</p>
 				</div>
 				<div class="item">
-					<h2>URL: /allDelivery/rut</h2>
+					<h2 class="center-title">
+						OBTENER TODOS LOS RUTS DE REPARTIDORES <br />
+						URL: /allDelivery/rut
+					</h2>
 					<p>GET: Obtiene todos los ruts de repartidores</p>
 				</div>
 			</div>
 			<div class="container-item">
 				<div class="item">
-					<h2>URL: /login</h2>
+					<h2 class="center-title">
+						LOGIN REPARTIDOR <br />
+						URL: /login
+					</h2>
+					<p>
+						POST: Envia datos de inicio de sesión y devuelve el rut en caso de
+						ser correcto
+					</p>
+					<p>
+						Recibe un correo (obligatorio) y password (obligatorio) por body
+					</p>
+				</div>
+				<div class="item">
+					<h2 class="center-title">
+						LOGIN CLIENTE <br />
+						URL: /loginc
+					</h2>
 					<p>
 						POST: Envia datos de inicio de sesión y devuelve el rut en caso de
 						ser correcto
