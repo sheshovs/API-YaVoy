@@ -37,6 +37,23 @@ const requests = {
 		}
 	},
 
+	getClientByRut: async (Rut_cliente) => {
+		try {
+			let sql = `SELECT * FROM ${tableName} WHERE Rut_cliente = "${Rut_cliente}";`;
+			return new Promise((resolve, reject) => {
+				connection.query(sql, (err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(JSON.stringify(result)));
+					}
+				});
+			});
+		} catch (error) {
+			return error.response;
+		}
+	},
+
 	checkIfClientExistById: async (id) => {
 		try {
 			let sql = `SELECT * FROM ${tableName} WHERE idCliente = "${id}";`;

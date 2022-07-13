@@ -44,6 +44,26 @@ const controller = {
 		});
 	},
 
+	GetClientByRut: async (req, res) => {
+		const { Rut_cliente } = req.query;
+
+		if (!Rut_cliente) {
+			return res.status(400).send({ error: "Falta ingresar el rut" });
+		}
+
+		const client = await Client.getClientByRut(Rut_cliente);
+
+		if (client.length === 0)
+			return res.status(404).send({ error: "No existen el cliente" });
+
+		delete client[0].Contrasena;
+
+		return res.status(200).send({
+			message: "Cliente encontrado",
+			client,
+		});
+	},
+
 	GetClientById: async (req, res) => {
 		const { id } = req.params;
 
