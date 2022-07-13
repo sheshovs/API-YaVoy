@@ -19,6 +19,22 @@ const requests = {
 			return error.response;
 		}
 	},
+	getAllRestaurants: async (Correo) => {
+		try {
+			let sql = `SELECT * FROM ${tableName};`;
+			return new Promise((resolve, reject) => {
+				connection.query(sql, (err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(JSON.stringify(result)));
+					}
+				});
+			});
+		} catch (error) {
+			return error.response;
+		}
+	},
 	checkIfRestaurantExist: async (Correo) => {
 		try {
 			let sql = `SELECT * FROM ${tableName} WHERE Correo = "${Correo}";`;

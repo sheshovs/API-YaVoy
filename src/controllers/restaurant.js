@@ -30,7 +30,7 @@ const controller = {
 	},
 
 	GetAllRestaurants: async (req, res) => {
-		const allRestaurants = await Restaurant.checkIfRestaurantExist();
+		const allRestaurants = await Restaurant.getAllRestaurants();
 
 		if (allRestaurants.length === 0)
 			return res.status(404).send({ error: "No existen restaurantes" });
