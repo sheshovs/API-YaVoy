@@ -3,7 +3,7 @@ const router = express.Router();
 //Import methods from controllers.
 const Delivery = require("../controllers/delivery");
 
-router.route("/login").post(Delivery.Login);
+router.route("/delivery/login").post(Delivery.Login);
 
 router.route("/delivery").post(Delivery.CreateDelivery);
 router.route("/delivery").patch(Delivery.UpdateDelivery);

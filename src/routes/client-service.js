@@ -3,6 +3,10 @@ const router = express.Router();
 //Import methods from controllers.
 const Client = require("../controllers/client");
 
-router.route("/loginc").post(Client.Login);
+router.route("/client/login").post(Client.Login);
+router.route("/client").get(Client.GetAllClients);
+router.route("/client").post(Client.CreateClient);
+router.route("/client/:id").get(Client.GetClientById);
+router.route("/client/:id").delete(Client.DeleteClient);
 
 module.exports = router;

@@ -1,26 +1,9 @@
 const { connection } = require("../config/db");
 
-const tableName = "CLIENTE";
+const tableName = "PRODUCTO";
 
 const requests = {
-	login: async (correo) => {
-		try {
-			let sql = `SELECT Rut_cliente, Correo, Contrasena FROM ${tableName} WHERE Correo = "${correo}";`;
-			return new Promise((resolve, reject) => {
-				connection.query(sql, (err, result) => {
-					if (err) {
-						reject(err);
-					} else {
-						resolve(JSON.parse(JSON.stringify(result)));
-					}
-				});
-			});
-		} catch (error) {
-			return error.response;
-		}
-	},
-
-	getAllClients: async () => {
+	getAllProduct: async (correo) => {
 		try {
 			let sql = `SELECT * FROM ${tableName};`;
 			return new Promise((resolve, reject) => {
@@ -37,9 +20,9 @@ const requests = {
 		}
 	},
 
-	checkIfClientExistById: async (id) => {
+	checkIfProductExistById: async (id) => {
 		try {
-			let sql = `SELECT * FROM ${tableName} WHERE idCliente = "${id}";`;
+			let sql = `SELECT * FROM ${tableName} WHERE idProducto = "${id}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
@@ -54,13 +37,19 @@ const requests = {
 		}
 	},
 
-	createClient: async (newClient) => {
+	createProduct: async (newProduct) => {
 		try {
-			const { Contrasena, Telefono, Correo, Direccion, Rut_cliente } =
-				newClient;
+			const {
+				Nom_prod,
+				Precio,
+				Stock,
+				Imagen,
+				Restaurante_idRestaurante,
+				Categoria,
+			} = newProduct;
 
-			let sql = `INSERT INTO ${tableName} (Contrasena, Telefono, Correo, Direccion, Rut_cliente) 
-			VALUES ("${Contrasena}",${Telefono},"${Correo}","${Direccion}","${Rut_cliente}");`;
+			let sql = `INSERT INTO ${tableName} (Nom_prod, Precio, Stock, Imagen, Restaurante_idRestaurante, Categoria) 
+			VALUES ("${Nom_prod}","${Precio}","${Stock}","${Imagen}","${Restaurante_idRestaurante}","${Categoria}");`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
@@ -75,9 +64,9 @@ const requests = {
 		}
 	},
 
-	deleteClient: async (id) => {
+	deleteProduct: async (id) => {
 		try {
-			let sql = `DELETE FROM ${tableName} WHERE idCliente = "${id}";`;
+			let sql = `DELETE FROM ${tableName} WHERE idProducto = "${id}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
