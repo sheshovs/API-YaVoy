@@ -6,6 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Documentacion Endpoints</title>
 		<style>
+			body {
+				font-family: sans-serif;
+				margin: 0;
+			}
 			.container {
 				display: flex;
 				flex-direction: column;
@@ -20,8 +24,21 @@
 				display: flex;
 				align-items: center;
 				flex-direction: column;
-				border: 1px solid black;
-				margin: 5px;
+			}
+			.item-client {
+				border: 5px solid rgb(255, 0, 0);
+			}
+			.item-delivery {
+				border: 5px solid rgb(5, 129, 0);
+			}
+			.item-order {
+				border: 5px solid rgb(25, 0, 255);
+			}
+			.item-product {
+				border: 5px solid rgb(255, 0, 242);
+			}
+			.item-restaurant {
+				border: 5px solid rgb(204, 133, 1);
 			}
 			.center-title {
 				text-align: center;
@@ -31,7 +48,7 @@
 	<body>
 		<div class="container">
 			<div class="container-item">
-				<div class="item">
+				<div class="item item-delivery">
 					<h2 class="center-title">
 						OBTENER REPARTIDOR <br />
 						URL: /delivery?rut=202046782
@@ -39,7 +56,7 @@
 					<p>GET: Obtiene un repartidor</p>
 					<p>Recibe un rut (obligatorio) por parámetros</p>
 				</div>
-				<div class="item">
+				<div class="item item-delivery">
 					<h2 class="center-title">
 						ELIMINAR REPARTIDOR <br />
 						URL: /delivery?rut=202046782
@@ -49,7 +66,7 @@
 				</div>
 			</div>
 			<div class="container-item">
-				<div class="item">
+				<div class="item item-delivery">
 					<h2 class="center-title">
 						CREAR REPARTIDOR <br />
 						URL: /delivery
@@ -57,20 +74,20 @@
 					<p>POST: Creación de repartidor</p>
 					<p>
 						Recibe por body los siguientes datos: <br />
-						rut (obligatorio), <br />
-						p_nombre (obligatorio),<br />
-						s_nombre,<br />
-						p_apellido (obligatorio),<br />
-						s_apellido,<br />
-						nro_documento,<br />
-						nacionalidad (obligatorio),<br />
-						calificacion,<br />
-						genero,<br />
-						password,<br />
-						correo.
+						- rut (obligatorio), <br />
+						- p_nombre (obligatorio),<br />
+						- s_nombre,<br />
+						- p_apellido (obligatorio),<br />
+						- s_apellido,<br />
+						- nro_documento,<br />
+						- nacionalidad (obligatorio),<br />
+						- calificacion,<br />
+						- genero,<br />
+						- password,<br />
+						- correo.
 					</p>
 				</div>
-				<div class="item">
+				<div class="item item-delivery">
 					<h2 class="center-title">
 						ACTUALIZAR REPARTIDOR <br />
 						URL: /delivery
@@ -78,28 +95,28 @@
 					<p>PATCH: Modificar datos de repartidor</p>
 					<p>
 						Recibe por body los siguientes datos: <br />
-						rut (obligatorio), <br />
-						p_nombre (obligatorio),<br />
-						s_nombre,<br />
-						p_apellido (obligatorio),<br />
-						s_apellido,<br />
-						nro_documento,<br />
-						nacionalidad (obligatorio),<br />
-						calificacion,<br />
-						genero,<br />
-						correo.
+						- rut (obligatorio), <br />
+						- p_nombre (obligatorio),<br />
+						- s_nombre,<br />
+						- p_apellido (obligatorio),<br />
+						- s_apellido,<br />
+						- nro_documento,<br />
+						- nacionalidad (obligatorio),<br />
+						- calificacion,<br />
+						- genero,<br />
+						- correo.
 					</p>
 				</div>
 			</div>
 			<div class="container-item">
-				<div class="item">
+				<div class="item item-delivery">
 					<h2 class="center-title">
 						OBTENER TODOS LOS REPARTIDORES <br />
 						URL: /allDelivery
 					</h2>
 					<p>GET: Obtiene todos los repartidores</p>
 				</div>
-				<div class="item">
+				<div class="item item-delivery">
 					<h2 class="center-title">
 						OBTENER TODOS LOS RUTS DE REPARTIDORES <br />
 						URL: /allDelivery/rut
@@ -108,7 +125,7 @@
 				</div>
 			</div>
 			<div class="container-item">
-				<div class="item">
+				<div class="item item-delivery">
 					<h2 class="center-title">
 						LOGIN REPARTIDOR <br />
 						URL: /delivery/login
@@ -121,7 +138,7 @@
 						Recibe un correo (obligatorio) y password (obligatorio) por body
 					</p>
 				</div>
-				<div class="item">
+				<div class="item item-client">
 					<h2 class="center-title">
 						LOGIN CLIENTE <br />
 						URL: /client/login
@@ -133,6 +150,192 @@
 					<p>
 						Recibe un correo (obligatorio) y password (obligatorio) por body
 					</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-client">
+					<h2 class="center-title">
+						OBTENER CLIENTES <br />
+						URL: /client
+					</h2>
+					<p>GET: Obtiene todos los repartidores</p>
+				</div>
+				<div class="item item-client">
+					<h2 class="center-title">
+						CREAR CLIENTE <br />
+						URL: /client
+					</h2>
+					<p>POST: Creación de cliente</p>
+					<p>
+						Recibe por body los siguientes datos: <br />
+						- Contrasena (obligatorio), <br />
+						- Telefono (obligatorio),<br />
+						- Correo (obligatorio),<br />
+						- Direccion (obligatorio),<br />
+						- Rut_cliente (obligatorio).
+					</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-client">
+					<h2 class="center-title">
+						OBTENER CLIENTE POR ID <br />
+						URL: /client/:id
+					</h2>
+					<p>GET: Obtiene el cliente por id</p>
+					<p>Recibe por params el id</p>
+				</div>
+				<div class="item item-client">
+					<h2 class="center-title">
+						ELIMINAR CLIENTE <br />
+						URL: /client/:id
+					</h2>
+					<p>DELETE: Elimina el cliente por id</p>
+					<p>Recibe por params el id</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-restaurant">
+					<h2 class="center-title">
+						CREAR RESTAURANTE <br />
+						URL: /restaurant/register
+					</h2>
+					<p>POST: Creación de restaurante</p>
+					<p>
+						Recibe por body los siguientes datos: <br />
+						- Correo (obligatorio), <br />
+						- Telefono (obligatorio),<br />
+						- Direccion (obligatorio),<br />
+						- Nombre_Negocio (obligatorio),<br />
+						- Nombre_client (obligatorio),<br />
+						- Apellido_client (obligatorio),<br />
+						- Contrasena (obligatorio),<br />
+						- Tipo_empresa (obligatorio).
+					</p>
+				</div>
+				<div class="item item-restaurant">
+					<h2 class="center-title">
+						LOGIN RESTAURANTE <br />
+						URL: /restaurant/login
+					</h2>
+					<p>
+						Envia datos de inicio de sesión y devuelve un mensaje en caso de ser
+						correcto
+					</p>
+					<p>
+						Recibe un Correo (obligatorio) y Contrasena (obligatorio) por body
+					</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-restaurant">
+					<h2 class="center-title">
+						ACTUALIZAR RESTAURANTE <br />
+						URL: /restaurant/:id
+					</h2>
+					<p>PATCH: Actualizar restaurante</p>
+					<p>
+						Recibe por body los siguientes datos: <br />
+						- Correo (obligatorio), <br />
+						- Telefono (obligatorio),<br />
+						- Direccion (obligatorio),<br />
+						- Nombre_Negocio (obligatorio),<br />
+						- Nombre_client (obligatorio),<br />
+						- Apellido_client (obligatorio),<br />
+						- Tipo_empresa (obligatorio).
+					</p>
+				</div>
+				<div class="item item-restaurant">
+					<h2 class="center-title">
+						ELIMINAR RESTAURANTE <br />
+						URL: /restaurant/:id
+					</h2>
+					<p>DELETE: Elimina el restaurante por id</p>
+					<p>Recibe por params el id</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-restaurant">
+					<h2 class="center-title">
+						OBTENER RESTAURANTE POR ID<br />
+						URL: /restaurant/:id
+					</h2>
+					<p>GET: Obtiene el restaurante por id</p>
+					<p>Recibe por params el id</p>
+				</div>
+				<div class="item item-restaurant">
+					<h2 class="center-title">
+						OBTENER RESTAURANTES <br />
+						URL: /restaurant
+					</h2>
+					<p>GET: Obtiene todos los restaurantes</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-product">
+					<h2 class="center-title">
+						OBTENER PRODUCTO POR ID<br />
+						URL: /product/:id
+					</h2>
+					<p>GET: Obtiene el producto por id</p>
+					<p>Recibe por params el id</p>
+				</div>
+				<div class="item item-product">
+					<h2 class="center-title">
+						OBTENER PRODUCTOS <br />
+						URL: /product
+					</h2>
+					<p>GET: Obtiene todos los productos</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-product">
+					<h2 class="center-title">
+						CREAR PRODUCTO <br />
+						URL: /product
+					</h2>
+					<p>POST: Creación de restaurante</p>
+					<p>
+						Recibe por body los siguientes datos: <br />
+						- Nom_prod (obligatorio), <br />
+						- Precio (obligatorio),<br />
+						- Stock (obligatorio),<br />
+						- Imagen (obligatorio),<br />
+						- Restaurante_idRestaurante (obligatorio),<br />
+						- Categoria (obligatorio).
+					</p>
+				</div>
+				<div class="item item-product">
+					<h2 class="center-title">
+						ELIMINAR PRODUCTO <br />
+						URL: /product/:id
+					</h2>
+					<p>DELETE: Elimina el producto por id</p>
+					<p>Recibe por params el id</p>
+				</div>
+			</div>
+			<div class="container-item">
+				<div class="item item-order">
+					<h2 class="center-title">
+						CREAR PEDIDO <br />
+						URL: /order
+					</h2>
+					<p>POST: Creación de pedido</p>
+					<p>
+						Recibe por body los siguientes datos: <br />
+						- Estado (obligatorio), <br />
+						- Fecha_p (obligatorio),<br />
+						- Descripcion (obligatorio),<br />
+						- Cliente_idCliente (obligatorio),<br />
+						- Metodo_Pago_idMetodo_Pago (obligatorio).
+					</p>
+				</div>
+				<div class="item item-order">
+					<h2 class="center-title">
+						OBTENER PEDIDOS <br />
+						URL: /order
+					</h2>
+					<p>GET: Obtiene todos los pedidos</p>
 				</div>
 			</div>
 		</div>
