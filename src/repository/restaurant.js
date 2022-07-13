@@ -19,9 +19,9 @@ const requests = {
 			return error.response;
 		}
 	},
-	checkIfRestaurantExist: async (correo) => {
+	checkIfRestaurantExist: async (Correo) => {
 		try {
-			let sql = `SELECT * FROM ${tableName};`;
+			let sql = `SELECT * FROM ${tableName} WHERE Correo = "${Correo}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
