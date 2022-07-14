@@ -8,6 +8,6 @@ router.route("/clients").get(Client.GetAllClients);
 router.route("/client").get(Client.GetClientByRut);
 router.route("/client").post(Client.CreateClient);
 router.route("/client/:id").get(Client.GetClientById);
-router.route("/client/:id").delete(Client.DeleteClient);
+router.route("/client").delete(Client.DeleteClient);
 
 module.exports = router;

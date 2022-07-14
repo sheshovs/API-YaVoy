@@ -124,19 +124,19 @@ const controller = {
 	},
 
 	DeleteClient: async (req, res) => {
-		const { id } = req.params;
+		const { Rut_cliente } = req.query;
 
-		if (!id) {
-			return res.status(400).send({ error: "Falta enviar el id del cliente" });
+		if (!Rut_cliente) {
+			return res.status(400).send({ error: "Falta ingresar el rut" });
 		}
 
-		const checkIfClientExist = await Client.checkIfClientExistById(id);
+		const checkIfClientExist = await Client.getClientByRut(Rut_cliente);
 
 		if (checkIfClientExist.length === 0) {
 			return res.status(404).send({ error: "El cliente no existe" });
 		}
 
-		const deleteClient = await Client.deleteClient(id);
+		const deleteClient = await Client.deleteClient(Rut_cliente);
 
 		if (deleteClient.affectedRows > 0) {
 			return res.status(200).send({

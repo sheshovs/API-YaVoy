@@ -92,9 +92,9 @@ const requests = {
 		}
 	},
 
-	deleteClient: async (id) => {
+	deleteClient: async (Rut_cliente) => {
 		try {
-			let sql = `DELETE FROM ${tableName} WHERE idCliente = "${id}";`;
+			let sql = `DELETE FROM ${tableName} WHERE Rut_cliente = "${Rut_cliente}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
