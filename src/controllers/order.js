@@ -56,6 +56,8 @@ const controller = {
 
 		const idRepartidor = await Order.getIdRepartidor();
 
+		const nameRepartidor = `${idRepartidor[0].p_nombre} ${idRepartidor[0].p_apellido}`;
+
 		const newOrder = {
 			Estado,
 			Fecha_p,
@@ -71,6 +73,7 @@ const controller = {
 			return res.status(200).send({
 				message: "Pedido creado correctamente",
 				newOrder,
+				nameRepartidor,
 			});
 		}
 		return res.status(400).send({ error: "Error al crear el pedido" });

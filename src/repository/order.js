@@ -65,7 +65,7 @@ const requests = {
 
 	getIdRepartidor: async () => {
 		try {
-			let sql = `SELECT idRepartidor FROM REPARTIDOR ORDER BY RAND() LIMIT 1;`;
+			let sql = `SELECT idRepartidor, p_nombre, p_apellido FROM REPARTIDOR ORDER BY RAND() LIMIT 1;`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
