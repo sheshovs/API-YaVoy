@@ -37,6 +37,23 @@ const requests = {
 		}
 	},
 
+	getProductsByRestaurantId: async (id) => {
+		try {
+			let sql = `SELECT * FROM ${tableName} WHERE Restaurante_idRestaurante = "${id}";`;
+			return new Promise((resolve, reject) => {
+				connection.query(sql, (err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(JSON.stringify(result)));
+					}
+				});
+			});
+		} catch (error) {
+			return error.response;
+		}
+	},
+
 	createProduct: async (newProduct) => {
 		try {
 			const {

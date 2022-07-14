@@ -108,6 +108,25 @@ const controller = {
 			product,
 		});
 	},
+	GetProductByRestaurantId: async (req, res) => {
+		const { id } = req.params;
+
+		if (!id) {
+			return res
+				.status(400)
+				.send({ error: "Falta enviar el id del restaurante" });
+		}
+
+		const products = await Product.getProductsByRestaurantId(id);
+
+		if (products.length === 0)
+			return res.status(404).send({ error: "No existen productos" });
+
+		return res.status(200).send({
+			message: "Productos encontrados",
+			products,
+		});
+	},
 };
 
 module.exports = controller;

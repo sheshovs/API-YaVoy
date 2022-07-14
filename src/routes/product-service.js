@@ -7,5 +7,6 @@ router.route("/product/:id").get(Product.GetProductById);
 router.route("/product").get(Product.GetAllProducts);
 router.route("/product").post(Product.CreateProduct);
 router.route("/product/:id").delete(Product.DeleteProduct);
+router.route("/productsByRestaurant/:id").get(Product.GetProductByRestaurantId);
 
 module.exports = router;
