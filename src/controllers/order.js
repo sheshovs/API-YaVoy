@@ -12,6 +12,23 @@ const controller = {
 			allOrders,
 		});
 	},
+	GetOrderById: async (req, res) => {
+		const { id } = req.params;
+
+		if (!id) {
+			return res.status(400).send({ error: "Falta enviar el id del cliente" });
+		}
+
+		const order = await Order.getOrderById(id);
+
+		if (order.length === 0)
+			return res.status(404).send({ error: "No existe el pedido" });
+
+		return res.status(200).send({
+			message: "Pedido encontrado",
+			order,
+		});
+	},
 	CreateOrder: async (req, res) => {
 		const {
 			Estado,

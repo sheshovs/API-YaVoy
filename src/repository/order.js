@@ -19,6 +19,22 @@ const requests = {
 			return error.response;
 		}
 	},
+	getOrderById: async (id) => {
+		try {
+			let sql = `SELECT * FROM ${tableName} WHERE Repartidor_idRepartidor = "${id}";`;
+			return new Promise((resolve, reject) => {
+				connection.query(sql, (err, result) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(JSON.parse(JSON.stringify(result)));
+					}
+				});
+			});
+		} catch (error) {
+			return error.response;
+		}
+	},
 
 	createOrder: async (newOrder) => {
 		try {

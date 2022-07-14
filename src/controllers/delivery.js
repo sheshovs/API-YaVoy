@@ -26,7 +26,10 @@ const controller = {
 
 		return res.status(200).send({
 			message: "Inicio de sesión exitoso",
-			data: { Rut_Rep: infoDelivery[0].Rut_Rep },
+			data: {
+				Rut_Rep: infoDelivery[0].Rut_Rep,
+				idRepartidor: infoDelivery[0].idRepartidor,
+			},
 		});
 	},
 
