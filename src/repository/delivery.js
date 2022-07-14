@@ -5,7 +5,7 @@ const tableName = "REPARTIDOR";
 const requests = {
 	login: async (correo) => {
 		try {
-			let sql = `SELECT Rut_Rep, Correo, Contrasena FROM ${tableName} WHERE Correo = "${correo}";`;
+			let sql = `SELECT idRepartidor, Rut_Rep, Correo, Contrasena FROM ${tableName} WHERE Correo = "${correo}";`;
 			return new Promise((resolve, reject) => {
 				connection.query(sql, (err, result) => {
 					if (err) {
